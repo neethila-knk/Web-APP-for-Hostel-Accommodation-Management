@@ -84,11 +84,10 @@
                         <p class="lead mb-4">Your all-in-one solution for streamlined student accommodation (Exclusively for NSBM Green University Students). Our platform offers hassle-free room reservation, easy ad posting, robust security, and seamless communication.</p>
                         <h6 class="blinking">Select Your Role Below!</h6>
                         <div class="pt-2 d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Student</button>
-                            <button type="button" class="btn btn-warning btn-lg px-4 gap-3">Landlord</button>
-                            <button type="button" class="btn btn-danger btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WardenModal">Warden</button>
-
-                            <button type="button" class="btn btn-success btn-lg px-4 gap-3">Web Master</button>
+                            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#StudentModalLog">Student</button>
+                            <button type="button" class="btn btn-warning btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#LandlordModalLog">Landlord</button>
+                            <button type="button" class="btn btn-danger btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#">Warden</button>
+                            <button type="button" class="btn btn-success btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WebMasterLog">Web Master</button>
                         </div>
                     </div>
                 </div>
@@ -98,12 +97,12 @@
 
 
 
-        <!-- Warden login Modal -->
-        <div class="modal fade" id="WardenModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WardenModalpLabel" aria-hidden="true">
+        <!-- Landlord login Modal -->
+        <div class="modal fade" id="LandlordModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LandlordModalLogLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="WardenModalLabel">Login</h1>
+                        <h1 class="modal-title fs-5" id="LandlordModalLogLabel">Login</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -117,7 +116,7 @@
                                 <input type="password" class="form-control" id="password" placeholder="Password" required>
                             </div>
                             <div>
-                                <p>Haven't registered yet? <a href="#" data-bs-toggle="modal" data-bs-target="#WardenModalReg">Register Now</a></p>
+                                <p>Haven't registered yet? <a href="#" data-bs-toggle="modal" data-bs-target="#LandlordModalReg">Register Now</a></p>
                             </div>
                         </form>
                     </div>
@@ -129,12 +128,12 @@
             </div>
         </div>
 
-        <!-- Warden register Modal -->
-        <div class="modal fade" id="WardenModalReg" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WardenModalRegLabel" aria-hidden="true">
+        <!-- Landlord register Modal -->
+        <div class="modal fade" id="LandlordModalReg" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LandlordModalRegLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="WardenModalRegLabel">Login</h1>
+                        <h1 class="modal-title fs-5" id="LandlordModalRegLabel">Login</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -159,7 +158,61 @@
             </div>
         </div>
 
+        <!-- Student login Modal -->
+        <div class="modal fade" id="StudentModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="StudentModalLogLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="StudentModalLogLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" form="loginForm" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Student login Modal -->
+<div class="modal fade" id="WebMasterLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WebMasterLogLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="WebMasterLogLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="loginForm" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     </form>
