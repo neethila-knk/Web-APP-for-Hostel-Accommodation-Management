@@ -7,6 +7,7 @@
     <title></title>
 </head>
 <body>
+
  <form id="landregform" runat="server">
      <div>
          <h2>Landloard Registration Form</h2>
@@ -33,5 +34,6 @@
          </div>
      </div>
  </form>
+
 </body>
 </html>
