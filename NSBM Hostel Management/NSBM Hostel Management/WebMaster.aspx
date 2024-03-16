@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
     <link href="webmasterstyle.css" rel="stylesheet" />
+
 </head>
 <body> <div class="wrapper">
         <aside id="sidebar">
@@ -29,13 +30,25 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" onclick="toggleRegistrationForm()" data-bs-toggle="collapse"
+                        data-bs-target="#regi" aria-expanded="false" aria-controls="regi">
                         <i class="lni lni-agenda"></i>
-                        <span>Task</span>
+                        <span>Registrations</span>
                     </a>
+                     <ul id="regi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                        <a href="#" onclick="toggleRegistrationForm('landlord')" class="sidebar-link">Landlord</a>
+                         </li>
+                         <li class="sidebar-item">
+                          <a href="#" onclick="toggleRegistrationForm('warden')" class="sidebar-link">Warden</a>
+                          </li>
+                         <li class="sidebar-item">
+                        <a href="#" onclick="toggleRegistrationForm('student')" class="sidebar-link">Student</a>
+                        </li>
+                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    <a href="#" class="sidebar-link collapsed has-dropdown"  data-bs-toggle="collapse"
                         data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                         <i class="lni lni-protection"></i>
                         <span>Auth</span>
@@ -53,7 +66,7 @@
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                         <i class="lni lni-layout"></i>
-                        <span>Multi Level</span>
+                        <span>Post</span>
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
@@ -73,9 +86,9 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="#" class="sidebar-link" onclick="showArticleForm()">
                         <i class="lni lni-popup"></i>
-                        <span>Notification</span>
+                        <span>Articles</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -99,13 +112,20 @@
                 </h1>
             </div>
 
-           <form id="registrationForm" runat="server">
-            <div class="form-group">
-                <label for="registrationType">Choose Registration Type:</label>
-                <asp:DropDownList ID="registrationType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="registrationType_SelectedIndexChanged">
+            <div id="testtt" runat="server">
+   
+</div>
+
+            <div id="postsContainer" runat="server">
+    <!-- This is where the posted content will be displayed -->
+</div>
+           <form id="registrationForm" runat="server" style="display:none;">
+            <div class="form-group"></label>
+                <asp:DropDownList ID="registrationType" runat="server" AutoPostBack="false" OnSelectedIndexChanged="registrationType_SelectedIndexChanged" style="display: none;">
                         <asp:ListItem Value="landlord">Landlord</asp:ListItem>
                         <asp:ListItem Value="warden">Warden</asp:ListItem>
                         <asp:ListItem Value="student">Student</asp:ListItem>
+                        <asp:ListItem Value="article">Article</asp:ListItem>
                 </asp:DropDownList>
 
             </div>
@@ -139,6 +159,9 @@
                     <label for="txtPasswordWM">Password:</label>
                     <asp:TextBox ID="txtPasswordWM" TextMode="Password" runat="server"></asp:TextBox>
                 </div>
+                <div>
+    <asp:Button ID="registerbtn" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
+</div>
             </div>
 
             <div id="wardenForm" style="display: none;" runat="server">
@@ -166,12 +189,16 @@
                     <label for="txtPasswordWM2">Password:</label>
                     <asp:TextBox ID="txtPasswordWM2" TextMode="Password" runat="server"></asp:TextBox>
                 </div>
+
+                    <div>
+    <asp:Button ID="Button1" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
+</div>
             </div>
 
              <div id="studentForm" style="display: none;" runat="server">
      <h2>Student Registration Form</h2>
      <div>
-         <label for="txtFirstNameWM3">First Name:</label>
+         <lsabel for="txtFirstNameWM3">First Name:</lsabel>
          <asp:TextBox ID="txtFirstNameWM3" runat="server"></asp:TextBox>
      </div>
 
@@ -193,36 +220,118 @@
          <label for="txtPasswordWM2">Password:</label>
          <asp:TextBox ID="txtPasswordWM3" TextMode="Password" runat="server"></asp:TextBox>
      </div>
+                 <div>
+    <asp:Button ID="Button2" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
+</div>
  </div>
 
-            <div>
-                <asp:Button ID="registerbtn" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
-            </div>
-        </form>
-    </div>
+                  <div id="articleForum" style="display: none;" runat="server">
+    <header>
+        <h1>Article Forum</h1>
+    </header>
+    <main>
+        <label for="title">Title:</label>
+        <asp:TextBox ID="title" runat="server"></asp:TextBox>
+        <label for="author">Author:</label>
+        <asp:TextBox ID="author" runat="server"></asp:TextBox>
+        <label for="content">Content:</label>
+        <asp:TextBox ID="content" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+        <asp:Button ID="submitButton" runat="server" Text="Post" OnClick="submitButton_Clickk" />
+       
+    </main>
 </div>
+            
+
+        </form>
+
+        
+  
+
+
+
+    
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 <script src="Webmaster.js"></script>
 
-<script>
-    function toggleRegistrationForm() {
-        var registrationType = document.getElementById("registrationType").value;
-        if (registrationType === "landlord") {
-            document.getElementById("landlordForm").style.display = "block";
-            document.getElementById("wardenForm").style.display = "none";
-            document.getElementById("studentForm").style.display = "none";
-        } else if (registrationType === "warden") {
-            document.getElementById("landlordForm").style.display = "none";
-            document.getElementById("wardenForm").style.display = "block";
-            document.getElementById("studentForm").style.display = "none";
-        } else if (registrationType === "student") {
-            document.getElementById("landlordForm").style.display = "none";
-            document.getElementById("wardenForm").style.display = "none";
-            document.getElementById("studentForm").style.display = "block";
+    <script>
+        function toggleSection(section) {
+            if (section === 'article') {
+                document.getElementById("landlordForm").style.display = "none";
+                document.getElementById("wardenForm").style.display = "none";
+                document.getElementById("studentForm").style.display = "none";
+                document.getElementById("articleForum").style.display = "block";
+            } else {
+                toggleRegistrationForm(section);
+            }
         }
-    }
-</script>
+
+        function toggleRegistrationForm(type) {
+            var registrationForm = document.getElementById("registrationForm");
+            var registrationTypeDropdown = document.getElementById("registrationType");
+
+            if (type === "landlord") {
+                registrationTypeDropdown.value = "landlord";
+                document.getElementById("landlordForm").style.display = "block";
+                document.getElementById("wardenForm").style.display = "none";
+                document.getElementById("studentForm").style.display = "none";
+                document.getElementById("articleForum").style.display = "none";
+                postsContainer.style.display = "none";
+            } else if (type === "warden") {
+                registrationTypeDropdown.value = "warden";
+                document.getElementById("landlordForm").style.display = "none";
+                document.getElementById("wardenForm").style.display = "block";
+                document.getElementById("studentForm").style.display = "none";
+                document.getElementById("articleForum").style.display = "none";
+                postsContainer.style.display = "none";
+            } else if (type === "student") {
+                registrationTypeDropdown.value = "student";
+                document.getElementById("landlordForm").style.display = "none";
+                document.getElementById("wardenForm").style.display = "none";
+                document.getElementById("studentForm").style.display = "block";
+                document.getElementById("articleForum").style.display = "none";
+                postsContainer.style.display = "none";
+            } else if (type === "article") {
+                registrationTypeDropdown.value = "article";
+                document.getElementById("landlordForm").style.display = "none";
+                document.getElementById("wardenForm").style.display = "none";
+                document.getElementById("studentForm").style.display = "none";
+                document.getElementById("articleForum").style.display = "block";
+            } else {
+                registrationForm.style.display = "block";
+            }
+        }
+
+
+        function showArticleForm() {
+            var registrationForm = document.getElementById("registrationForm");
+            var articleForm = document.getElementById("articleForum");
+            
+
+            // Check if the registration form is hidden
+            if (registrationForm.style.display === "none") {
+                // If hidden, toggle the registration form first
+                toggleRegistrationForm();
+            }
+
+            // Show the article form
+            articleForm.style.display = "block";
+            landlordForm.style.display = "none";
+            wardenForm.style.display = "none";
+            studentForm.style.display = "none";
+            postsContainer.style.display = "none";
+            
+          
+            
+        }
+
+    </script>
+
+
+
+
 </body>
 </html>

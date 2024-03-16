@@ -1,41 +1,62 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace NSBM_Hostel_Management
 {
     public partial class WebMaster : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
+        protected void submitButton_Clickk(object sender, EventArgs e)
+        {
+            // Retrieve the values entered by the user
+            string title = this.title.Text;
+            string author = this.author.Text;
+            string content = this.content.Text;
+            // Create a string representing the new post container
+            string newPostContainer = $@"
+        <div class='post-container'>
+            <div class='post'>
+                <h2>Title:{title}</h2>
+                <p><strong>Author:</strong> {author}</p>
+                <p>Content:{content}</p>
+            </div>
+        </div>";
+
+            // Append the new post container to the existing content
+            this.postsContainer.InnerHtml += newPostContainer;
+
+            // Clear the form fields for the next post
+            this.title.Text = "";
+            this.author.Text = "";
+            this.content.Text = "";
         }
+
         protected void registrationType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedValue = registrationType.SelectedValue;
+            string selectedValue = registrationType.Text;
+            DropDownList registrationTypeDropdown = (DropDownList)sender;
+
+
             landlordForm.Style["display"] = selectedValue == "landlord" ? "block" : "none";
             wardenForm.Style["display"] = selectedValue == "warden" ? "block" : "none";
             studentForm.Style["display"] = selectedValue == "student" ? "block" : "none";
+            articleForum.Style["display"] = selectedValue == "article" ? "block" : "none";
         }
 
 
         protected void btnRegister_Clickk(object sender, EventArgs e)
         {
-            
-        
-        // landlord
-        string firstname1 = txtFirstNameWM.Text;
+
+
+            // landlord
+            string firstname1 = txtFirstNameWM.Text;
             string lastname1 = txtLastNameWM.Text;
             string email1 = txtEmailWM.Text;
             string password1 = txtPasswordWM.Text;
-            string address= txtAddress.Text;
-            string nid1=txtNIDWM.Text;
+            string address = txtAddress.Text;
+            string nid1 = txtNIDWM.Text;
 
             // warden
             string firstname2 = txtFirstNameWM2.Text;
@@ -55,8 +76,8 @@ namespace NSBM_Hostel_Management
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-               
-                string landquery = "INSERT INTO Landloards_UserDetails (FirstName, LastName, Email, Password, Address, NID) VALUES (@FirstName1, @LastName1, @Email1, @Password1, @Address, @NID)";
+
+                string landquery = "INSERT INTO Landloards_UserDetails (FirstName, LastName, Email, Password, Address, NID) VALUES (@FirstName1, @LastName1, @Email1, @Password1, @Address, @NID1)";
                 string wardenquery = "INSERT INTO Wardens_UserDetails (FirstName, LastName, Email, Password, NID) VALUES (@FirstName2, @LastName2, @Email2, @Password2, @NID2)";
                 string studentquery = "INSERT INTO Students_UserDetails (FirstName, LastName, SID, Email, Password) VALUES (@FirstName3, @LastName3, @SID, @Email3, @Password3)";
 
@@ -99,7 +120,7 @@ namespace NSBM_Hostel_Management
                         {
                             connection.Open();
                             command.ExecuteNonQuery();
-                            Response.Write("User registered successfully!");
+                            Response.Write("Warden registered successfully!");
                         }
                         catch (Exception ex)
                         {
@@ -114,7 +135,7 @@ namespace NSBM_Hostel_Management
                     {
                         command.Parameters.AddWithValue("@FirstName3", firstname3);
                         command.Parameters.AddWithValue("@LastName3", lastname3);
-                        command.Parameters.AddWithValue("@SID", lastname3);
+                        command.Parameters.AddWithValue("@SID", sid);
                         command.Parameters.AddWithValue("@Email3", email3);
                         command.Parameters.AddWithValue("@Password3", password3);
 
@@ -122,7 +143,7 @@ namespace NSBM_Hostel_Management
                         {
                             connection.Open();
                             command.ExecuteNonQuery();
-                            Response.Write("User registered successfully!");
+                            Response.Write("Student registered successfully!");
                         }
                         catch (Exception ex)
                         {
@@ -130,12 +151,18 @@ namespace NSBM_Hostel_Management
                         }
                     }
                 }
-                
 
-                
 
-               
+
+
+
             }
         }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+           
+        }
+
     }
 }

@@ -15,6 +15,24 @@ namespace NSBM_Hostel_Management
     {
 
         /// <summary>
+        /// testtt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl testtt;
+
+        /// <summary>
+        /// postsContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl postsContainer;
+
+        /// <summary>
         /// registrationForm control.
         /// </summary>
         /// <remarks>
@@ -96,6 +114,15 @@ namespace NSBM_Hostel_Management
         protected global::System.Web.UI.WebControls.TextBox txtPasswordWM;
 
         /// <summary>
+        /// registerbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button registerbtn;
+
+        /// <summary>
         /// wardenForm control.
         /// </summary>
         /// <remarks>
@@ -148,6 +175,15 @@ namespace NSBM_Hostel_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPasswordWM2;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// studentForm control.
@@ -204,12 +240,57 @@ namespace NSBM_Hostel_Management
         protected global::System.Web.UI.WebControls.TextBox txtPasswordWM3;
 
         /// <summary>
-        /// registerbtn control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerbtn;
+        protected global::System.Web.UI.WebControls.Button Button2;
+
+        /// <summary>
+        /// articleForum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl articleForum;
+
+        /// <summary>
+        /// title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox title;
+
+        /// <summary>
+        /// author control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox author;
+
+        /// <summary>
+        /// content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox content;
+
+        /// <summary>
+        /// submitButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitButton;
     }
 }
