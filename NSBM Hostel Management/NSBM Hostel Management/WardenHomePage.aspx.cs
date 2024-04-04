@@ -44,7 +44,7 @@ namespace NSBM_Hostel_Management
             // Connect to your MS SQL database and retrieve data for the card.
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM hostel_details_temp", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM temp_hostel_details", connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -169,7 +169,7 @@ namespace NSBM_Hostel_Management
             string hostelId = approveButton.ID.Replace("btnApprove_", ""); // Extract the hostel ID from the button ID
 
             // Retrieve the data of the approved hostel from the temporary table
-            string query = "SELECT * FROM hostel_details_temp WHERE hostelID = @HostelID";
+            string query = "SELECT * FROM temp_hostel_details WHERE hostelID = @HostelID";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -268,7 +268,7 @@ namespace NSBM_Hostel_Management
             // Connect to the database and execute the delete query
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "DELETE FROM hostel_details_temp WHERE hostelID = @HostelID";
+                string query = "DELETE FROM temp_hostel_details WHERE hostelID = @HostelID";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@HostelID", hostelID);
