@@ -3,8 +3,29 @@
   "WorkspaceRootPath": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|d:\\projects\\hostel\\web-app-for-hostel-accommodation-management\\nsbm hostel management\\nsbm hostel management\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|solutionrelative:nsbm hostel management\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+=======
+      "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|d:\\projects\\hostel\\web-app-for-hostel-accommodation-management\\nsbm hostel management\\nsbm hostel management\\landload.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|solutionrelative:nsbm hostel management\\landload.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\nsbm hostel management\\wardenhomepage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|solutionrelative:nsbm hostel management\\wardenhomepage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\nsbm hostel management\\landload.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|solutionrelative:nsbm hostel management\\landload.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\nsbm hostel management\\updatelanload.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|solutionrelative:nsbm hostel management\\updatelanload.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\nsbm hostel management\\add_hostel.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|solutionrelative:nsbm hostel management\\add_hostel.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+>>>>>>> Stashed changes
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BF2AE5B-2F68-4AFD-8EF9-E920C08629C6}|NSBM Hostel Management\\NSBM Hostel Management.csproj|D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\nsbm hostel management\\wardenhomepage.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,15 +34,16 @@
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedHeight": 236,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 0,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\Web.config",
@@ -32,10 +54,46 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-03-16T08:59:52.789Z",
               "EditorCaption": ""
+=======
+              "DocumentIndex": 3,
+              "Title": "updateLanload.aspx",
+              "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\updateLanload.aspx",
+              "RelativeDocumentMoniker": "NSBM Hostel Management\\updateLanload.aspx",
+              "ToolTip": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\updateLanload.aspx",
+              "RelativeToolTip": "NSBM Hostel Management\\updateLanload.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-17T09:52:33.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "add_hostel.aspx",
+              "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\add_hostel.aspx",
+              "RelativeDocumentMoniker": "NSBM Hostel Management\\add_hostel.aspx",
+              "ToolTip": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\add_hostel.aspx",
+              "RelativeToolTip": "NSBM Hostel Management\\add_hostel.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-17T09:51:49.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WardenHomePage.aspx.cs",
+              "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\WardenHomePage.aspx.cs",
+              "RelativeDocumentMoniker": "NSBM Hostel Management\\WardenHomePage.aspx.cs",
+              "ToolTip": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\WardenHomePage.aspx.cs",
+              "RelativeToolTip": "NSBM Hostel Management\\WardenHomePage.aspx.cs",
+              "ViewState": "AQIAAPUAAAAAAAAAAAAAwEABAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T09:14:35.276Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< Updated upstream
               "Title": "WardenHomePage.aspx.cs",
               "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\WardenHomePage.aspx.cs",
               "RelativeDocumentMoniker": "NSBM Hostel Management\\WardenHomePage.aspx.cs",
@@ -44,6 +102,41 @@
               "ViewState": "AQIAANAAAAAAAAAAAAAkwEsBAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-16T08:48:18.322Z"
+=======
+              "Title": "WardenHomePage.aspx",
+              "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\WardenHomePage.aspx",
+              "RelativeDocumentMoniker": "NSBM Hostel Management\\WardenHomePage.aspx",
+              "ToolTip": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\WardenHomePage.aspx",
+              "RelativeToolTip": "NSBM Hostel Management\\WardenHomePage.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-16T09:13:25.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "landload.aspx",
+              "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\landload.aspx",
+              "RelativeDocumentMoniker": "NSBM Hostel Management\\landload.aspx",
+              "ToolTip": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\landload.aspx",
+              "RelativeToolTip": "NSBM Hostel Management\\landload.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-10T08:53:50.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "landload.aspx.cs",
+              "DocumentMoniker": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\landload.aspx.cs",
+              "RelativeDocumentMoniker": "NSBM Hostel Management\\landload.aspx.cs",
+              "ToolTip": "D:\\projects\\hostel\\Web-APP-for-Hostel-Accommodation-Management\\NSBM Hostel Management\\NSBM Hostel Management\\landload.aspx.cs",
+              "RelativeToolTip": "NSBM Hostel Management\\landload.aspx.cs",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAUwJwAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T09:13:48.446Z"
+>>>>>>> Stashed changes
             }
           ]
         }

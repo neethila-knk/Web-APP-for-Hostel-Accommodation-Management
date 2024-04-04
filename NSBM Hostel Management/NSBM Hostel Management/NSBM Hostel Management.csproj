@@ -103,7 +103,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+<<<<<<< Updated upstream
     <Content Include="assets\NSBM.mp4" />
+=======
+    <Content Include="add_hostel.aspx" />
+>>>>>>> Stashed changes
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -125,7 +129,12 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+<<<<<<< Updated upstream
     <Content Include="index.aspx" />
+=======
+    <Content Include="landload.aspx" />
+    <Content Include="landlogin.aspx" />
+>>>>>>> Stashed changes
     <Content Include="LandSignup.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -183,6 +192,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="updateLanload.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="WardenHomePage.aspx" />
     <Content Include="Web.config" />
@@ -190,6 +200,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add_hostel.aspx.cs">
+      <DependentUpon>add_hostel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="add_hostel.aspx.designer.cs">
+      <DependentUpon>add_hostel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -216,12 +233,28 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+=======
+    <Compile Include="landload.aspx.cs">
+      <DependentUpon>landload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landload.aspx.designer.cs">
+      <DependentUpon>landload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlogin.aspx.cs">
+      <DependentUpon>landlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlogin.aspx.designer.cs">
+      <DependentUpon>landlogin.aspx</DependentUpon>
+>>>>>>> Stashed changes
     </Compile>
     <Compile Include="LandSignup.aspx.cs">
       <DependentUpon>LandSignup.aspx</DependentUpon>
@@ -245,6 +278,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="updateLanload.aspx.cs">
+      <DependentUpon>updateLanload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateLanload.aspx.designer.cs">
+      <DependentUpon>updateLanload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedImages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -61,7 +61,11 @@ namespace NSBM_Hostel_Management
                         int beds = Convert.ToInt32(reader["beds"]);
                         decimal price = Convert.ToDecimal(reader["price"]);
 
+<<<<<<< Updated upstream
                         
+=======
+
+>>>>>>> Stashed changes
 
                         // Generate ASP.NET buttons dynamically for the card.
                         Button approveButton = new Button();
@@ -148,7 +152,11 @@ namespace NSBM_Hostel_Management
                         cardDiv.Controls.Add(rowDiv);
 
                         // Add an attribute to the cardDiv to call the JavaScript function on click
+<<<<<<< Updated upstream
                        
+=======
+
+>>>>>>> Stashed changes
                         cardDiv.Attributes["onclick"] = "handleCardClick('" + reader["latitude"].ToString() + "', '" + reader["longitude"].ToString() + "');";
 
                         // Add the dynamically generated card HTML to your card-list-scroll div.
@@ -159,7 +167,11 @@ namespace NSBM_Hostel_Management
             }
         }
 
+<<<<<<< Updated upstream
  
+=======
+
+>>>>>>> Stashed changes
 
 
         protected void btnApprove_Click(object sender, EventArgs e)
@@ -193,7 +205,11 @@ namespace NSBM_Hostel_Management
             // Remove the card from the UI
             RemoveCardFromUI(hostelId);
             LoadApprovedHostelList();
+<<<<<<< Updated upstream
  
+=======
+
+>>>>>>> Stashed changes
             ClientScript.RegisterStartupScript(this.GetType(), "script", "alert('Successfully Approved');", true);
 
         }
@@ -229,6 +245,7 @@ namespace NSBM_Hostel_Management
         }
 
 
+<<<<<<< Updated upstream
         protected void btnReject_Click(object sender, EventArgs e)
         {
             Button rejectButton = (Button)sender; // Get the button that triggered the event
@@ -241,6 +258,20 @@ namespace NSBM_Hostel_Management
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@HostelID", hostelId);
+=======
+            protected void btnReject_Click(object sender, EventArgs e)
+            {
+                Button rejectButton = (Button)sender; // Get the button that triggered the event
+                string hostelId = rejectButton.ID.Replace("btnReject_", ""); // Extract the hostel ID from the button ID
+
+                // Retrieve the data of the rejected hostel from the temporary table
+                string query = "SELECT * FROM temp_hostel_details WHERE hostelID = @HostelID";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@HostelID", hostelId);
+>>>>>>> Stashed changes
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
