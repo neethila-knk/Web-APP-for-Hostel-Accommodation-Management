@@ -258,39 +258,39 @@ namespace NSBM_Hostel_Management
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl articleForum;
 
         /// <summary>
-        /// title control.
+        /// ptitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox title;
+        protected global::System.Web.UI.WebControls.TextBox ptitle;
 
         /// <summary>
-        /// author control.
+        /// pauthor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox author;
+        protected global::System.Web.UI.WebControls.TextBox pauthor;
 
         /// <summary>
-        /// content control.
+        /// pcontent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox content;
+        protected global::System.Web.UI.WebControls.TextBox pcontent;
 
         /// <summary>
-        /// submitButton control.
+        /// submitpostButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitButton;
+        protected global::System.Web.UI.WebControls.Button submitpostButton;
     }
 }
