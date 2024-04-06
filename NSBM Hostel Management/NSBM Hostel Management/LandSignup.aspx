@@ -7,7 +7,6 @@
     <title></title>
 </head>
 <body>
-
  <form id="landregform" runat="server">
      <div>
          <h2>Landloard Registration Form</h2>
@@ -32,8 +31,11 @@
          <div>
              <asp:Button ID="btnRegister" Text="Register" runat="server" OnClick="btnRegister_Click" />
          </div>
+           <div>
+                <!-- Hyperlink to the login page -->
+                <a href="LandLogin.aspx">Let's Log In</a>
+            </div>
      </div>
  </form>
-
 </body>
 </html>

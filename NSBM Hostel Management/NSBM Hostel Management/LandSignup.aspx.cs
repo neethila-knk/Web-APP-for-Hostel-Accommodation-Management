@@ -48,6 +48,11 @@ namespace NSBM_Hostel_Management
                     }
                 }
             }
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+
         }
     }
 }
