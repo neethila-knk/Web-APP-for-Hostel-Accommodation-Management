@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebMaster.aspx.cs" Inherits="NSBM_Hostel_Management.WebMaster" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,31 +63,14 @@
                         </li>
                     </ul>
                 </li>
+             <li class="sidebar-item">
+              <a href="#" class="sidebar-link" onclick="showArticleForm()">
+                <i class="lni lni-layout"></i>
+                  <span>Post</span>
+                      </a>
+                    </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <i class="lni lni-layout"></i>
-                        <span>Post</span>
-                    </a>
-                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                                Two Links
-                            </a>
-                            <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Link 1</a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Link 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" onclick="showArticleForm()">
+                    <a href="#" class="sidebar-link" onclick="showArticles()">
                         <i class="lni lni-popup"></i>
                         <span>Articles</span>
                     </a>
@@ -105,13 +89,14 @@
                 </a>
             </div>
         </aside>
+   
         <div class="main p-3">
             <div class="text-center">
                 <h1>
                     Web Master (Admin)
                 </h1>
             </div>
-
+            
             <div id="testtt" runat="server">
    
 </div>
@@ -120,7 +105,7 @@
     <!-- This is where the posted content will be displayed -->
 </div>
            <form id="registrationForm" runat="server" style="display:none;">
-            <div class="form-group"></label>
+            <div class="form-group">
                 <asp:DropDownList ID="registrationType" runat="server" AutoPostBack="false" OnSelectedIndexChanged="registrationType_SelectedIndexChanged" style="display: none;">
                         <asp:ListItem Value="landlord">Landlord</asp:ListItem>
                         <asp:ListItem Value="warden">Warden</asp:ListItem>
@@ -143,7 +128,7 @@
                 </div>
 
                 <div>
-                    <label for="txtNIDWM">NID(National Identity Card):</label>
+                    <label for="txtNIDWM">NIC(National Identity Card):</label>
                     <asp:TextBox ID="txtNIDWM" runat="server"></asp:TextBox>
                 </div>
 
@@ -177,7 +162,7 @@
                 </div>
 
                 <div>
-                    <label for="txtNIDWM2">NID(National Identity Card):</label>
+                    <label for="txtNIDWM2">NIC(National Identity Card):</label>
                     <asp:TextBox ID="txtNIDWM2" runat="server"></asp:TextBox>
                 </div>
 
@@ -231,12 +216,12 @@
     </header>
     <main>
         <label for="title">Title:</label>
-        <asp:TextBox ID="title" runat="server"></asp:TextBox>
+        <asp:TextBox ID="ptitle" runat="server"></asp:TextBox>
         <label for="author">Author:</label>
-        <asp:TextBox ID="author" runat="server"></asp:TextBox>
+        <asp:TextBox ID="pauthor" runat="server"></asp:TextBox>
         <label for="content">Content:</label>
-        <asp:TextBox ID="content" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
-        <asp:Button ID="submitButton" runat="server" Text="Post" OnClick="submitButton_Clickk" />
+        <asp:TextBox ID="pcontent" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+        <asp:Button ID="submitpostButton" runat="server" Text="Post" OnClick="submitpostButton_Click" />
        
     </main>
 </div>
@@ -245,13 +230,6 @@
         </form>
 
         
-  
-
-
-
-    
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
@@ -324,8 +302,15 @@
             studentForm.style.display = "none";
             postsContainer.style.display = "none";
             
-          
-            
+
+        }
+
+        function showArticles() {
+            document.getElementById("landlordForm").style.display = "none";
+            document.getElementById("wardenForm").style.display = "none";
+            document.getElementById("studentForm").style.display = "none";
+            document.getElementById("articleForum").style.display = "none";
+            document.getElementById("postsContainer").style.display = "block";
         }
 
     </script>

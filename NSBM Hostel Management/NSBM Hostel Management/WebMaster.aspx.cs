@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
@@ -8,12 +9,91 @@ namespace NSBM_Hostel_Management
     public partial class WebMaster : System.Web.UI.Page
     {
 
-        protected void submitButton_Clickk(object sender, EventArgs e)
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                // Call a method to fetch and display the posts
+                DisplayPosts();
+            }
+        }
+        private void DisplayPosts()
+        {
+            // Assume you have a method to fetch posts from the database
+            List<Post> posts = FetchPostsFromDatabase();
+
+            // Bind the posts to a control
+            postsContainer.InnerHtml = ""; // Clear existing content
+            foreach (var post in posts)
+            {
+                postsContainer.InnerHtml += $@"
+        <div class='post-container'>
+            <div class='post'>
+                <h2>Title:{post.Title}</h2>
+                <p><strong>Author:</strong> {post.Author}</p>
+                    <br>
+                <p>Content:{post.Content}</p>
+            </div>
+        </div>";
+
+            }
+        }
+
+        private List<Post> FetchPostsFromDatabase()
+        {
+            List<Post> posts = new List<Post>();
+
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MsSqlConnection"].ConnectionString;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT Title, Author, Content FROM PostDB";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Post post = new Post
+                        {
+                            Title = reader["Title"].ToString(),
+                            Author = reader["Author"].ToString(),
+                            Content = reader["Content"].ToString()
+                        };
+
+                        posts.Add(post);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception appropriately
+                Response.Write("Error fetching posts: " + ex.Message);
+            }
+
+            return posts;
+        }
+
+
+        public class Post
+        {
+            public string Title { get; set; }
+            public string Author { get; set; }
+            public string Content { get; set; }
+        }
+        //extra
+        protected void submitButton_Click(object sender, EventArgs e)
         {
             // Retrieve the values entered by the user
-            string title = this.title.Text;
-            string author = this.author.Text;
-            string content = this.content.Text;
+            string title = this.ptitle.Text;
+            string author = this.pauthor.Text;
+            string content = this.pcontent.Text;
             // Create a string representing the new post container
             string newPostContainer = $@"
         <div class='post-container'>
@@ -28,9 +108,9 @@ namespace NSBM_Hostel_Management
             this.postsContainer.InnerHtml += newPostContainer;
 
             // Clear the form fields for the next post
-            this.title.Text = "";
-            this.author.Text = "";
-            this.content.Text = "";
+            this.ptitle.Text = "";
+            this.pauthor.Text = "";
+            this.pcontent.Text = "";
         }
 
         protected void registrationType_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,9 +239,65 @@ namespace NSBM_Hostel_Management
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void submitpostButton_Click(object sender, EventArgs e)
         {
-           
+            // Extract data from form fields
+            string postTitle = ptitle.Text;
+            string postAuthor = pauthor.Text;
+            string postContent = pcontent.Text;
+
+            // Validate data (optional)
+
+            // Save data to the database (Assuming you have a method to do this)
+            bool success = SavePostToDatabase(postTitle, postAuthor, postContent);
+
+            if (success)
+            {
+                // Optionally, you can display a success message or redirect the user
+                Response.Write("<script>alert('Post submitted successfully!');</script>");
+                // You might want to redirect the user to another page after successful submission
+                // Response.Redirect("SomeOtherPage.aspx");
+            }
+            else
+            {
+                // Display an error message if the post couldn't be saved
+                Response.Write("<script>alert('Failed to submit post. Please try again.');</script>");
+            }
+
+            // Clear the form fields after submission
+            ptitle.Text = "";
+            pauthor.Text = "";
+            pcontent.Text = "";
+        }
+
+        private bool SavePostToDatabase(string title, string author, string content)
+        {
+            // Implement logic to save the post to your database
+            // This is just a dummy implementation for demonstration purposes
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["MsSqlConnection"].ConnectionString;
+                // Example:
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                 {
+                     connection.Open();
+                    string query = "INSERT INTO PostDB (Title, Author, Content) VALUES (@Title, @Author, @Content)";
+                     using (SqlCommand command = new SqlCommand(query, connection))
+                     {
+                         command.Parameters.AddWithValue("@Title", title);
+                         command.Parameters.AddWithValue("@Author", author);
+                         command.Parameters.AddWithValue("@Content", content);
+                         int rowsAffected = command.ExecuteNonQuery();
+                         return rowsAffected > 0;
+                     }
+                 }
+                return true; // Return true if the post is successfully saved
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception appropriately
+                return false; // Return false if an error occurs while saving the post
+            }
         }
 
     }
