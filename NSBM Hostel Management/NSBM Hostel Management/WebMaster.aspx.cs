@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 
 namespace NSBM_Hostel_Management
@@ -299,6 +300,13 @@ namespace NSBM_Hostel_Management
                 return false; // Return false if an error occurs while saving the post
             }
         }
+        protected void btnwebLogout_Click(object sender, EventArgs e)
+        {
+         
+
+
+        }
+
 
     }
 }

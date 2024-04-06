@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
     <link href="webmasterstyle.css" rel="stylesheet" />
+    
 
 </head>
 <body> <div class="wrapper">
@@ -24,12 +25,7 @@
                 </div>
             </div>
             <ul class="sidebar-nav">
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-user"></i>
-                        <span>Profile</span>
-                    </a>
-                </li>
+               
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" onclick="toggleRegistrationForm()" data-bs-toggle="collapse"
                         data-bs-target="#regi" aria-expanded="false" aria-controls="regi">
@@ -48,21 +44,7 @@
                         </li>
                      </ul>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown"  data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
-                        <span>Auth</span>
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
-                        </li>
-                    </ul>
-                </li>
+               
              <li class="sidebar-item">
               <a href="#" class="sidebar-link" onclick="showArticleForm()">
                 <i class="lni lni-layout"></i>
@@ -75,15 +57,10 @@
                         <span>Articles</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-cog"></i>
-                        <span>Setting</span>
-                    </a>
-                </li>
+                
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="#" class="sidebar-link" onclick="btnwebLogout_Click()">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -141,9 +118,9 @@
                     <asp:TextBox ID="txtEmailWM" runat="server"></asp:TextBox>
                 </div>
                 <div>
-                    <label for="txtPasswordWM">Password:</label>
-                    <asp:TextBox ID="txtPasswordWM" TextMode="Password" runat="server"></asp:TextBox>
-                </div>
+                    <label for="txtPasswordWM">Password:</label><br/>
+                    <asp:TextBox ID="txtPasswordWM" TextMode="Password"  runat="server" style="width:100%; height:44px; border-radius:5px" ></asp:TextBox>
+                </div><br />
                 <div>
     <asp:Button ID="registerbtn" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
 </div>
@@ -171,9 +148,9 @@
                     <asp:TextBox ID="txtEmailWM2" runat="server"></asp:TextBox>
                 </div>
                 <div>
-                    <label for="txtPasswordWM2">Password:</label>
-                    <asp:TextBox ID="txtPasswordWM2" TextMode="Password" runat="server"></asp:TextBox>
-                </div>
+                    <label for="txtPasswordWM2">Password:</label><br />
+                    <asp:TextBox ID="txtPasswordWM2" TextMode="Password" runat="server" style="width:100%;height:44px; border-radius:5px" ></asp:TextBox>
+                </div><br />
 
                     <div>
     <asp:Button ID="Button1" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
@@ -202,9 +179,9 @@
          <asp:TextBox ID="txtEmailWM3" runat="server"></asp:TextBox>
      </div>
      <div>
-         <label for="txtPasswordWM2">Password:</label>
-         <asp:TextBox ID="txtPasswordWM3" TextMode="Password" runat="server"></asp:TextBox>
-     </div>
+         <label for="txtPasswordWM2">Password:</label><br />
+         <asp:TextBox ID="txtPasswordWM3" TextMode="Password" runat="server" style="width:100%;height:44px; border-radius:5px" ></asp:TextBox>
+     </div><br />
                  <div>
     <asp:Button ID="Button2" Text="Register" runat="server" OnClick="btnRegister_Clickk" />
 </div>
@@ -233,8 +210,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-<script src="Webmaster.js"></script>
 
+<script src="Webmaster.js"></script>
     <script>
         function toggleSection(section) {
             if (section === 'article') {
@@ -257,13 +234,14 @@
                 document.getElementById("wardenForm").style.display = "none";
                 document.getElementById("studentForm").style.display = "none";
                 document.getElementById("articleForum").style.display = "none";
-                postsContainer.style.display = "none";
+                document.getElementById("postsContainer").style.display = "none";
             } else if (type === "warden") {
                 registrationTypeDropdown.value = "warden";
                 document.getElementById("landlordForm").style.display = "none";
                 document.getElementById("wardenForm").style.display = "block";
                 document.getElementById("studentForm").style.display = "none";
                 document.getElementById("articleForum").style.display = "none";
+                document.getElementById("postsContainer").style.display = "none";
                 postsContainer.style.display = "none";
             } else if (type === "student") {
                 registrationTypeDropdown.value = "student";
@@ -271,6 +249,7 @@
                 document.getElementById("wardenForm").style.display = "none";
                 document.getElementById("studentForm").style.display = "block";
                 document.getElementById("articleForum").style.display = "none";
+                document.getElementById("postsContainer").style.display = "none";
                 postsContainer.style.display = "none";
             } else if (type === "article") {
                 registrationTypeDropdown.value = "article";
@@ -278,6 +257,7 @@
                 document.getElementById("wardenForm").style.display = "none";
                 document.getElementById("studentForm").style.display = "none";
                 document.getElementById("articleForum").style.display = "block";
+                document.getElementById("postsContainer").style.display = "none";
             } else {
                 registrationForm.style.display = "block";
             }
@@ -312,11 +292,20 @@
             document.getElementById("articleForum").style.display = "none";
             document.getElementById("postsContainer").style.display = "block";
         }
+        function btnwebLogout_Click() {
+            // Your logout logic here
+            console.log("Logout button clicked");
+          
+
+            window.location.href = "index.aspx"; 
+        }
+
 
     </script>
 
 
 
-
+</div>
+</div>
 </body>
 </html>
