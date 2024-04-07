@@ -86,8 +86,13 @@
                         <div class="pt-2 d-grid gap-3 d-sm-flex justify-content-sm-center">
                             <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#StudentModalLog">Student</button>
                             <button type="button" class="btn btn-warning btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#LandlordModalLog">Landlord</button>
+<<<<<<< Updated upstream
                             <button type="button" class="btn btn-danger btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#">Warden</button>
                             <button type="button" class="btn btn-success btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WebMasterLog">Web Master</button>
+=======
+                            <button type="button" class="btn btn-danger btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WardenModalLog">Warden</button>
+                            <button type="button" class="btn btn-success btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WebMasterModalLog">Web Master</button>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
@@ -97,6 +102,45 @@
 
 
 
+<<<<<<< Updated upstream
+=======
+        <!-- Student login Modal -->
+        <div class="modal fade" id="StudentModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="StudentModalLogLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="studentloginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <div class="d-flex justify-content-center">
+                                    <!-- Center aligning the textbox -->
+                                    <asp:TextBox ID="semail" TextMode="Email" CssClass="form-control " runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="d-flex justify-content-center">
+                                    <!-- Center aligning the textbox -->
+                                    <asp:TextBox ID="spassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <asp:Button ID="btnslogin" class="btn btn-primary" Text="Login" UseSubmitBehavior="False" OnClientClick="return validateStudentLoginForm();" OnClick="btnslogin_Click" runat="server" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+>>>>>>> Stashed changes
         <!-- Landlord login Modal -->
         <div class="modal fade" id="LandlordModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LandlordModalLogLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -108,12 +152,29 @@
                     <div class="modal-body">
                         <form id="loginForm">
                             <div class="mb-3">
+<<<<<<< Updated upstream
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" placeholder="Password" required>
+=======
+                                <label for="landemail" class="form-label">Email address</label>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <asp:TextBox ID="llemail" TextMode="Email" CssClass="form-control " runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="landpassword" class="form-label">Password</label>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <asp:TextBox ID="llpassword" TextMode="Password" CssClass="form-control " runat="server"></asp:TextBox>
+                                </div>
+>>>>>>> Stashed changes
                             </div>
                             <div>
                                 <p>Haven't registered yet? <a href="#" data-bs-toggle="modal" data-bs-target="#LandlordModalReg">Register Now</a></p>
@@ -128,11 +189,17 @@
             </div>
         </div>
 
+<<<<<<< Updated upstream
         <!-- Landlord register Modal -->
+=======
+
+        <!-- Landlord registration Modal -->
+>>>>>>> Stashed changes
         <div class="modal fade" id="LandlordModalReg" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LandlordModalRegLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
+<<<<<<< Updated upstream
                         <h1 class="modal-title fs-5" id="LandlordModalRegLabel">Login</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -147,17 +214,53 @@
                                 <input type="password" class="form-control" id="password" placeholder="Password" required>
                             </div>
                             <div>
+=======
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="landlordRegistrationForm">
+                            <div class="mb-3">
+                                <label for="llfirstName" class="form-label">First Name</label>
+                                <asp:TextBox ID="llfirstName" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lllastName" class="form-label">Last Name</label>
+                                <asp:TextBox ID="lllastName" CssClass="form-control " runat="server"></asp:TextBox>
+                            </div>
+                            <div class="mb-3">
+                                <label for="llemail" class="form-label">Email address</label>
+                                <asp:TextBox ID="llemail2" CssClass="form-control" runat="server" TextMode="Email"></asp:TextBox>
+                            </div>
+                            <div class="mb-3">
+                                <label for="llpassword" class="form-label">Password</label>
+                                <asp:TextBox ID="llpassword2" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="llNIC" class="form-label">NIC (National Identity Card)</label>
+                                <asp:TextBox ID="llNIC" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="mb-3">
+                                <label for="llAddress" class="form-label">Address</label>
+                                <asp:TextBox ID="llAddress" CssClass="form-control" runat="server"></asp:TextBox>
+>>>>>>> Stashed changes
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<<<<<<< Updated upstream
                         <button type="submit" form="loginForm" class="btn btn-primary">Register</button>
+=======
+                        <asp:Button ID="llregisterbtn" CssClass="btn btn-primary" Text="Register" UseSubmitBehavior="False" OnClick="llregisterbtn_Click" runat="server" />
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
         </div>
 
+<<<<<<< Updated upstream
         <!-- Student login Modal -->
         <div class="modal fade" id="StudentModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="StudentModalLogLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -175,17 +278,51 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" placeholder="Password" required>
+=======
+
+
+        <div class="modal fade" id="WardenModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WardenModalLogLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="wardenloginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <asp:TextBox ID="wemail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <asp:TextBox ID="wpassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+>>>>>>> Stashed changes
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<<<<<<< Updated upstream
                         <button type="submit" form="loginForm" class="btn btn-primary">Login</button>
+=======
+
+                        <asp:Button ID="wloginbtn" class="btn btn-primary" Text="Login" UseSubmitBehavior="False" OnClick="wloginbtn_Click" runat="server" />
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
         </div>
 
+<<<<<<< Updated upstream
         <!-- Student login Modal -->
 <div class="modal fade" id="WebMasterLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WebMasterLogLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -215,7 +352,44 @@
 </div>
 
 
-    </form>
+=======
 
+        <div class="modal fade" id="WebMasterModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WebMasterLogLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="WebMasterLogLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="webmasterloginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <asp:TextBox ID="wmemail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <asp:TextBox ID="wmpassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        <asp:Button ID="webmlogin" class="btn btn-primary" Text="Login" UseSubmitBehavior="False" OnClick="webmlogin_Click" runat="server" />
+                    </div>
+                </div>
+            </div>
+        </div>
+>>>>>>> Stashed changes
+    </form>
 </body>
 </html>
