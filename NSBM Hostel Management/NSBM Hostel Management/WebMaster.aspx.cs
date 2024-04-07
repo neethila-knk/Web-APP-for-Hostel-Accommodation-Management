@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.Optimization;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 
 namespace NSBM_Hostel_Management
@@ -157,8 +159,8 @@ namespace NSBM_Hostel_Management
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
-                string landquery = "INSERT INTO Landloards_UserDetails (FirstName, LastName, Email, Password, Address, NID) VALUES (@FirstName1, @LastName1, @Email1, @Password1, @Address, @NID1)";
-                string wardenquery = "INSERT INTO Wardens_UserDetails (FirstName, LastName, Email, Password, NID) VALUES (@FirstName2, @LastName2, @Email2, @Password2, @NID2)";
+                string landquery = "INSERT INTO Landlords_UserDetails (FirstName, LastName, Email, Password, Address, NIC) VALUES (@FirstName1, @LastName1, @Email1, @Password1, @Address, @NID1)";
+                string wardenquery = "INSERT INTO Wardens_UserDetails (FirstName, LastName, Email, Password, NIC) VALUES (@FirstName2, @LastName2, @Email2, @Password2, @NID2)";
                 string studentquery = "INSERT INTO Students_UserDetails (FirstName, LastName, SID, Email, Password) VALUES (@FirstName3, @LastName3, @SID, @Email3, @Password3)";
 
                 if (registrationType.SelectedValue == "landlord")
@@ -177,7 +179,7 @@ namespace NSBM_Hostel_Management
                         {
                             connection.Open();
                             command.ExecuteNonQuery();
-                            Response.Write("Landlord registered successfully!");
+                            Response.Write("<script>alert('Landlord Registered Successfully');</script>");
                         }
                         catch (Exception ex)
                         {
@@ -200,7 +202,7 @@ namespace NSBM_Hostel_Management
                         {
                             connection.Open();
                             command.ExecuteNonQuery();
-                            Response.Write("Warden registered successfully!");
+                            Response.Write("<script>alert('Warden registered successfully!');</script>");
                         }
                         catch (Exception ex)
                         {
@@ -223,7 +225,7 @@ namespace NSBM_Hostel_Management
                         {
                             connection.Open();
                             command.ExecuteNonQuery();
-                            Response.Write("Student registered successfully!");
+                            Response.Write("<script>alert('Student registered successfully!');</script>");
                         }
                         catch (Exception ex)
                         {
@@ -299,6 +301,13 @@ namespace NSBM_Hostel_Management
                 return false; // Return false if an error occurs while saving the post
             }
         }
+        protected void btnwebLogout_Click(object sender, EventArgs e)
+        {
+         
+
+
+        }
+
 
     }
 }
