@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
@@ -18,6 +20,7 @@ namespace NSBM_Hostel_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 LoadCardDetails();
@@ -26,6 +29,7 @@ namespace NSBM_Hostel_Management
 
                 LoadRejectedHostelList();
             }
+
             else
             {
                 LoadCardDetails();
@@ -34,7 +38,6 @@ namespace NSBM_Hostel_Management
 
                 LoadRejectedHostelList();
             }
-
         }
 
 
@@ -60,8 +63,6 @@ namespace NSBM_Hostel_Management
                         int rooms = Convert.ToInt32(reader["rooms"]);
                         int beds = Convert.ToInt32(reader["beds"]);
                         decimal price = Convert.ToDecimal(reader["price"]);
-
-                        
 
                         // Generate ASP.NET buttons dynamically for the card.
                         Button approveButton = new Button();
@@ -121,7 +122,7 @@ namespace NSBM_Hostel_Management
 
                         HtmlGenericControl priceP = new HtmlGenericControl("p");
                         priceP.Attributes["class"] = "card-text mb-2 ps-2";
-                        priceP.InnerHtml = $"<small class='text-muted'> Rs.{price}/=</small>";
+                        priceP.InnerHtml = $"<small class='text-muted'>Monthly Charge: Rs.{price}/=</small>";
 
                         dFlexDiv.Controls.Add(roomsP);
                         dFlexDiv.Controls.Add(bedsP);
@@ -160,8 +161,6 @@ namespace NSBM_Hostel_Management
         }
 
  
-
-
         protected void btnApprove_Click(object sender, EventArgs e)
         {
 
@@ -204,9 +203,9 @@ namespace NSBM_Hostel_Management
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"INSERT INTO ApprovedHostelList 
-                        (hostelID, title, description, price, beds, rooms, longitude, latitude, image1, image2, image3, image4, status)
+                        (hostelID, title, description, price, beds, rooms, longitude, latitude, image1, image2, image3, image4, status, email)
                         VALUES 
-                        (@Hostelid, @Title, @Description, @Price, @Beds, @Rooms, @Longitude, @Latitude, @Image1, @Image2, @Image3, @Image4, @Status)";
+                        (@Hostelid, @Title, @Description, @Price, @Beds, @Rooms, @Longitude, @Latitude, @Image1, @Image2, @Image3, @Image4, @Status, @email)";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Hostelid", reader["hostelID"]);
@@ -222,10 +221,15 @@ namespace NSBM_Hostel_Management
                 command.Parameters.AddWithValue("@Image3", reader["image3"]);
                 command.Parameters.AddWithValue("@Image4", reader["image4"]);
                 command.Parameters.AddWithValue("@Status", "Approved");
+                command.Parameters.AddWithValue("@email", reader["email"]);
 
+                // Send email notification
+                SendEmail(reader["email"].ToString(), "Your hostel has been approved!", "Your hostel has been approved. Congratulations!");
                 connection.Open();
                 command.ExecuteNonQuery();
+
             }
+            
         }
 
 
@@ -376,12 +380,32 @@ namespace NSBM_Hostel_Management
                 command.Parameters.AddWithValue("@Image3", reader["image3"]);
                 command.Parameters.AddWithValue("@Image4", reader["image4"]);
                 command.Parameters.AddWithValue("@Status", "Rejected");
-
+                SendEmail(reader["email"].ToString(), "Your hostel has been rejected", "We regret to inform you that your hostel has been rejected.");
                 connection.Open();
                 command.ExecuteNonQuery();
             }
+
         }
 
+        public void SendEmail(string recipient, string subject, string body)
+        {
+            // Configure SMTP client
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("nsbmhostels@gmail.com", "kmrq octq ssse glxh");
 
+            // Create the email message
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("nsbmhostels@gmail.com");
+            mailMessage.To.Add(recipient);
+            mailMessage.Subject = subject;
+            mailMessage.Body = body;
+            mailMessage.IsBodyHtml = true;
+
+            // Send the email
+            client.Send(mailMessage);
+
+        }
     }
 }

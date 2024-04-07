@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="NSBM_Hostel_Management.index" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="NSBM_Hostel_Management.index" %>
 
 <!DOCTYPE html>
 
@@ -84,16 +84,19 @@
                         <p class="lead mb-4">Your all-in-one solution for streamlined student accommodation (Exclusively for NSBM Green University Students). Our platform offers hassle-free room reservation, easy ad posting, robust security, and seamless communication.</p>
                         <h6 class="blinking">Select Your Role Below!</h6>
                         <div class="pt-2 d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#StudentModalLog">Student</button>
+                            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#StudentLog">Student</button>
                             <button type="button" class="btn btn-warning btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#LandlordModalLog">Landlord</button>
+                            
                             <button type="button" class="btn btn-danger btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WardenModalLog">Warden</button>
                             <button type="button" class="btn btn-success btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#WebMasterModalLog">Web Master</button>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
 
 
 
@@ -224,42 +227,33 @@
 
 
 
-        <!-- Warden login Modal -->
-        <div class="modal fade" id="WardenModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WardenModalLogLabel" aria-hidden="true">
+       
+                              
+        <div class="modal fade" id="WardenLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WardenLogLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5">Login</h1>
+                        <h1 class="modal-title fs-5" id="WardenLogLabel">Login</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="wardenloginForm">
+                        <form id="WardenloginForm">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-
-                                <div class="d-flex justify-content-center">
-
-                                    <asp:TextBox ID="wemail" TextMode="Email" CssClass="form-control text-center" runat="server"></asp:TextBox>
-                                </div>
+                                <label for="Wardemail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="Wardemail" placeholder="Enter email" runat="server" required />
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-
-                                <div class="d-flex justify-content-center">
-
-                                    <asp:TextBox ID="wpassword" TextMode="Password" CssClass="form-control text-center" runat="server"></asp:TextBox>
-                                </div>
+                                <label for="Wardpassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="Wardpassword" placeholder="Password" runat="server" required />
                             </div>
+                            <asp:Button ID="btnWardenLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnWardenLogin_Click" />
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                        <asp:Button ID="wloginbtn" class="btn btn-primary" Text="Login" UseSubmitBehavior="False" OnClick="wloginbtn_Click" runat="server" />
-                    </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Webmaster login Modal -->
         <div class="modal fade" id="WebMasterModalLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="WebMasterLogLabel" aria-hidden="true">
@@ -299,6 +293,7 @@
         </div>
 
 
+ 
     </form>
 
 </body>
