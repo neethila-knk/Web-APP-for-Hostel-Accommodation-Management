@@ -19,33 +19,33 @@
 
     <style>
         .card-list-scroll {
-            max-height: 495px; 
-            overflow-y: auto; 
-            padding-right: 15px; 
+            max-height: 495px;
+            overflow-y: auto;
+            padding-right: 15px;
         }
 
             .card-list-scroll .card {
-                margin-bottom: 15px; 
+                margin-bottom: 15px;
             }
 
         .head {
-            background-color: #f0f0f0; 
-            padding: 20px 0; 
+            background-color: #f0f0f0;
+            padding: 20px 0;
         }
 
         .heading-container {
-            text-align: center; 
+            text-align: center;
         }
 
         .main-heading {
-            font-size: 2.5rem; 
-            color: #333; 
-            margin-bottom: 10px; 
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
         }
 
         .description {
-            font-size: 1rem; 
-            color: #666; 
+            font-size: 1rem;
+            color: #666;
         }
 
         .hostel-img {
@@ -55,10 +55,10 @@
         }
 
         .hostelcard {
-            transition: transform 0.3s ease, background-color 0.3s ease; 
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-           
+
             .hostelcard:hover {
                 transform: scale(1.05);
                 background-color: seashell;
@@ -118,21 +118,7 @@
                 </asp:TableHeaderRow>
             </asp:Table>
 
-            <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">1 <span class="visually-hidden">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+           
         </section>
 
         <section class="sub-head">
@@ -161,7 +147,12 @@
             </asp:Table>
         </section>
 
-
+        <% if (Session["SessionId"] != null)
+            { %>
+        <script>
+            console.log("Session ID: <%= Session["SessionId"].ToString() %>");
+        </script>
+        <% } %>
     </form>
 
 
@@ -183,5 +174,7 @@
             });
         }
     </script>
+
+
 </body>
 </html>

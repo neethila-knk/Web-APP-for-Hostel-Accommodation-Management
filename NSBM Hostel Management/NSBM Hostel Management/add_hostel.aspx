@@ -26,6 +26,5 @@
         <asp:Button ID="btnAddHostel" runat="server" Text="Add Hostel" OnClick="btnAddHostel_Click" />
     </div>
 </form>
-     <a href="landload.aspx">landload page</a> 
 </body>
 </html>

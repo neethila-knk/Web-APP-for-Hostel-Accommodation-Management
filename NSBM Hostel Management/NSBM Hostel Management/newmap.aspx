@@ -108,8 +108,6 @@
                 <asp:TextBox ID="txtArea" runat="server" TextMode="MultiLine" Rows="4" Columns="50" CssClass="txtinput"></asp:TextBox>
             </div>
 
-           
-    
 
             <asp:Button ID="btnsend" runat="server" Text="Send" OnClick="btnsend_Click" />
 
@@ -121,7 +119,9 @@
     <div class="overlay"></div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZvudURYymqSItL1YUc6Hvsye9wgkED0c&libraries=geometry,places&callback=initMap" async defer></script>
+    
     <script src="newmap.js"></script>
+    
     <script>
         function setHostelIdAndName(hostelId, hostelName) {
 
@@ -129,10 +129,6 @@
 
             document.getElementById('<%= hiddenHostelName.ClientID %>').value = hostelName;
         }
-
-
-
-
 
     </script>
 </body>

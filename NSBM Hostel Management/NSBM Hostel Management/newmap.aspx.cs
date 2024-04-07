@@ -29,9 +29,6 @@ namespace test1
 
         }
 
-
-
-
         protected void btnsend_Click(object sender, EventArgs e)
         {
             if (checkValidation())
@@ -43,12 +40,9 @@ namespace test1
                 string phonenum = txtphone.Text;
                 string hostelName = hiddenHostelName.Value;
                 string txtarea = txtArea.Text;
-               
-
-            
+                 
                     try
                     {
-
 
                         // Get the Hostel ID
                         int hostelId;
