@@ -23,6 +23,7 @@ namespace NSBM_Hostel_Management
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
+
         /// <summary>
 
         /// semail control.
@@ -44,12 +45,12 @@ namespace NSBM_Hostel_Management
         /// <summary>
         /// Wardpassword control.
 
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox spassword;
 
         /// <summary>
@@ -60,13 +61,13 @@ namespace NSBM_Hostel_Management
         /// <summary>
         /// btnWardenLogin control.
 
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
 
-        protected global::System.Web.UI.WebControls.Button btnslogin;
 
         /// <summary>
         /// llemail control.
@@ -213,6 +214,7 @@ namespace NSBM_Hostel_Management
         protected global::System.Web.UI.WebControls.Button webmlogin;
 
         protected global::System.Web.UI.WebControls.Button btnWardenLogin;
+
 
     }
 }
