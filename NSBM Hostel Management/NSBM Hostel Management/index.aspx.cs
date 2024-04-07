@@ -162,11 +162,11 @@ namespace NSBM_Hostel_Management
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Landlords_UserDetails (FirstName, LastName, Email, Password, NIC, Address) VALUES(@FirstName, @LastName, @Email, @Password, @NIC, @Address)";
+                string query1 = "INSERT INTO Landlords_UserDetails (FirstName, LastName, Email, Password, NIC, Address) VALUES(@FirstName, @LastName, @Email, @Password, @NIC, @Address)";
 
 
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand(query1, connection))
                 {
                     command.Parameters.AddWithValue("@FirstName", firstName);
                     command.Parameters.AddWithValue("@LastName", lastName);

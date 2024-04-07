@@ -193,11 +193,11 @@
     </header>
     <main>
         <label for="title">Title:</label>
-        <asp:TextBox ID="ptitle" runat="server"></asp:TextBox>
-        <label for="author">Author:</label>
-        <asp:TextBox ID="pauthor" runat="server"></asp:TextBox>
+        <asp:TextBox ID="ptitle" runat="server" required></asp:TextBox>
+        <label for="author" >Author:</label>
+        <asp:TextBox ID="pauthor" runat="server" required></asp:TextBox>
         <label for="content">Content:</label>
-        <asp:TextBox ID="pcontent" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+        <asp:TextBox ID="pcontent" runat="server" TextMode="MultiLine" Rows="5" required></asp:TextBox>
         <asp:Button ID="submitpostButton" runat="server" Text="Post" OnClick="submitpostButton_Click" />
        
     </main>
