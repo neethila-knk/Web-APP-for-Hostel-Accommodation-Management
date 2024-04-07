@@ -35,15 +35,16 @@ namespace NSBM_Hostel_Management
             string rooms = txtRooms.Text; // Changed to string
             string beds = txtBeds.Text; // Changed to string
 
-            List<string> imagePaths = new List<string>();
+            List<string> imageUrls = new List<string>();
             foreach (FileUpload fileUpload in new[] { fileImage1, fileImage2, fileImage3, fileImage4 })
             {
                 if (fileUpload.HasFile)
                 {
                     string fileName = Path.GetFileName(fileUpload.FileName);
-                    string imagePath = Server.MapPath("~/UploadedImages/") + fileName;
+                    string imageUrl = "~/UploadedImages/" + fileName; // Relative path
+                    string imagePath = Server.MapPath(imageUrl);
                     fileUpload.SaveAs(imagePath);
-                    imagePaths.Add(imagePath);
+                    imageUrls.Add(imageUrl);
                 }
             }
 
@@ -51,8 +52,8 @@ namespace NSBM_Hostel_Management
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"INSERT INTO [dbo].[temp_hostel_details] ([title], [description], [price], [latitude], [longitude], [image1], [image2], [image3], [image4], [rooms], [beds], [email])
-                        VALUES (@Title, @Description, @Price, @Latitude, @Longitude, @Image1, @Image2, @Image3, @Image4, @Rooms, @Beds, @Email)";
+                string query = @"INSERT INTO [dbo].[hostel_details_temp] ([title], [description], [price], [latitude], [longitude], [image1], [image2], [image3], [image4], [rooms], [beds], [email])
+                VALUES (@Title, @Description, @Price, @Latitude, @Longitude, @Image1, @Image2, @Image3, @Image4, @Rooms, @Beds, @Email)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -63,8 +64,8 @@ namespace NSBM_Hostel_Management
                     command.Parameters.AddWithValue("@Longitude", longitude);
                     for (int i = 0; i < 4; i++)
                     {
-                        if (i < imagePaths.Count)
-                            command.Parameters.AddWithValue($"@Image{i + 1}", imagePaths[i]);
+                        if (i < imageUrls.Count)
+                            command.Parameters.AddWithValue($"@Image{i + 1}", imageUrls[i]);
                         else
                             command.Parameters.AddWithValue($"@Image{i + 1}", DBNull.Value);
                     }
@@ -86,5 +87,7 @@ namespace NSBM_Hostel_Management
             txtRooms.Text = "";
             txtBeds.Text = "";
         }
+
+
     }
 }
