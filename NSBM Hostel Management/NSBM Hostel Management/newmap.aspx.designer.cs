@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace test1
+namespace NSBM_Hostel_Management
 {
 
 

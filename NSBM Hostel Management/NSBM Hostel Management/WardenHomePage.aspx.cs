@@ -122,7 +122,7 @@ namespace NSBM_Hostel_Management
 
                         HtmlGenericControl priceP = new HtmlGenericControl("p");
                         priceP.Attributes["class"] = "card-text mb-2 ps-2";
-                        priceP.InnerHtml = $"<small class='text-muted'> Rs.{price}/=</small>";
+                        priceP.InnerHtml = $"<small class='text-muted'>Monthly Charge: Rs.{price}/=</small>";
 
                         dFlexDiv.Controls.Add(roomsP);
                         dFlexDiv.Controls.Add(bedsP);

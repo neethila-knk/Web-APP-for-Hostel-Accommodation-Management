@@ -2,7 +2,7 @@
 let infoWindow; // Define infoWindow globally
 
 async function initMap() {
-    const position = { lat: 6.9271, lng: 79.8612 };
+    const position = { lat: 6.821305058464578, lng: 80.04157728090856 };
 
     // Initialize the map
     map = new google.maps.Map(document.getElementById("map"), {

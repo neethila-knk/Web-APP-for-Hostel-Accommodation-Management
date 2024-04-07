@@ -507,7 +507,6 @@ namespace NSBM_Hostel_Management
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 
-
         public void UpdateHostel(string hostelId, string title, string description, decimal price, double latitude, double longitude, string rooms, string beds, List<string> imageUrls)
         {
             // Connect to the database and execute the update query
