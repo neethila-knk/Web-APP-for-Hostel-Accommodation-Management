@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="newmap.aspx.cs" Inherits="test1.newmap" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="newmap.aspx.cs" Inherits="NSBM_Hostel_Management.newmap" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDTP</title>
+    <title>Student Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href=" student.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
             width: 200px;
         }
 
-        #map{
+        #map {
             height: 100%;
         }
     </style>
@@ -33,8 +33,8 @@
     <section class="head">
         <div class="container">
             <div class="heading-container">
-                <h1 class="main-heading">Student Page</h1>
-                <p class="description">This is a description of the Student page.</p>
+                <h1 class="main-heading">Student Dashboard</h1>
+                <p class="description">Welcome to student dashboard</p>
             </div>
         </div>
     </section>
@@ -42,22 +42,28 @@
     <section class="search-box p-5" runat="server">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4" >
+                <div class="col-lg-4">
                     <div class="card-list-scroll">
                         <% foreach (var hostel in fetchHostelData())
                             { %>
                         <div class="card mb-3" data-longitude="<%= hostel.Longitude %>" data-latitude="<%= hostel.Latitude %>">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="<%: hostel.ImageUrl %>" class="img-fluid rounded-start hostel-img" alt="<%: hostel.Name %>" style="object-fit:cover">
+                                
+                                <img src='<%= ResolveUrl(hostel.ImageUrl) %>' class="img-fluid rounded-start hostel-img" alt='<%: hostel.Name %>' style="object-fit: cover">
+
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title"><%: hostel.Name %></h5>
-                                        <p class="card-text"><%: hostel.Description %></p>
-                                         <p class="card-text card-price">Price: $<%: hostel.Price %></p>
+                                        <p class="card-text mb-1"><%: hostel.Description %></p>
+                                        <p class="card-text card-price mb-1">Monthly Charge: Rs.<%: hostel.Price %></p>
                                         <div class=" d-flex d-inline-block">
-                                            <p class="card-text mb-2"><small class="text-muted"><%: hostel.Rooms %> rooms</small></p>
+
+                                            <p class="card-text mb-1"><small class="text-muted me-2"><%: hostel.Rooms %> Rooms </small></p>
+
+                                            <p class="card-text mb-1"><small class="text-muted"><%: hostel.Beds %> Beds</small></p>
+
                                         </div>
                                         <div class="btn-group" role="group" aria-label="Media buttons">
 
@@ -72,10 +78,10 @@
                     </div>
 
                 </div>
-                <div class="col-lg-8  " >
-    <div id="map"></div>
-</div>
-                
+                <div class="col-lg-8  ">
+                    <div id="map"></div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -118,10 +124,11 @@
     </form>
     <div class="overlay"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZvudURYymqSItL1YUc6Hvsye9wgkED0c&libraries=geometry,places&callback=initMap" async defer></script>
-    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVy90FE4evtixL-8e0avAziJz0aajSI7I&libraries=geometry,places&callback=initMap" async defer></script>
+
     <script src="newmap.js"></script>
-    
+
     <script>
         function setHostelIdAndName(hostelId, hostelName) {
 

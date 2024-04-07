@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 
 
-namespace test1
+namespace NSBM_Hostel_Management
 {
     public partial class newmap : System.Web.UI.Page
     {
@@ -21,10 +21,11 @@ namespace test1
             if (!IsPostBack)
             {
                 // No need to set the Hostel ID here during initial page load
+                fetchHostelData();
             }
             else
             {
-                
+                fetchHostelData();
             }
 
         }
@@ -124,12 +125,6 @@ namespace test1
             return Regex.IsMatch(email, pattern);
         }
 
-
-
-
-
-
-
         private bool InsertUserData(string firstName, string lastName, string email, int hostelId,string phonenum,string hostelname,string txtarea)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MsSqlConnection"].ConnectionString;
@@ -150,12 +145,10 @@ namespace test1
                         command.Parameters.AddWithValue("@phone", phonenum);
                         command.Parameters.AddWithValue("@cname", hostelname);
                         command.Parameters.AddWithValue("@txtarea", txtarea);
-                      
 
                         connection.Open();
                         command.ExecuteNonQuery();
 
-                        
                         message = "User registered successfully!";
                     }
                 }
@@ -235,7 +228,7 @@ namespace test1
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT id, name, description, rooms, price, longitude, latitude,imageUrl FROM place";
+                    string query = "SELECT * FROM ApprovedHostelList";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -246,14 +239,17 @@ namespace test1
                             while (reader.Read())
                             {
                                 Hostel hostel = new Hostel();
-                                hostel.CID = Convert.ToInt32(reader["id"]);
-                                hostel.Name = reader["name"].ToString();
+                                hostel.CID = Convert.ToInt32(reader["hostelID"]);
+                                hostel.Name = reader["title"].ToString();
                                 hostel.Description = reader["description"].ToString();
-                                hostel.Rooms = Convert.ToInt32(reader["rooms"]);
+                                
                                 hostel.Price = Convert.ToDecimal(reader["price"]);
-                                hostel.Longitude = Convert.ToDouble(reader["longitude"]);
+                                hostel.Beds = Convert.ToInt32(reader["beds"]);
+                                hostel.Rooms = Convert.ToInt32(reader["rooms"]);
+
                                 hostel.Latitude = Convert.ToDouble(reader["latitude"]);
-                                hostel.ImageUrl = reader["imageUrl"].ToString();
+                                hostel.Longitude = Convert.ToDouble(reader["longitude"]);
+                                hostel.ImageUrl = reader["image1"].ToString();
 
                                 hostels.Add(hostel);
                             }
@@ -261,12 +257,12 @@ namespace test1
                     }
                 }
             }
+
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
             
-
             return hostels;
         }
     }
@@ -283,5 +279,6 @@ namespace test1
         public double Longitude { get; set; }
         public double Latitude { get; set; }
         public string ImageUrl { get; set; }
+        public int Beds { get; set; }
     }
 }
